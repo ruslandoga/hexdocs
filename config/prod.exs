@@ -4,6 +4,7 @@ config :hexdocs,
   hexpm_impl: Hexdocs.Hexpm.Impl,
   store_impl: Hexdocs.Store.Impl,
   cdn_impl: Hexdocs.CDN.Fastly,
+  search_impl: Hexdocs.Search.Typesense,
   queue_producer: BroadwaySQS.Producer,
   gcs_put_debounce: 3000
 
@@ -23,6 +24,5 @@ config :rollbax,
 
 config :sasl, sasl_error_logger: false
 
-config :logger,
-  level: :info,
-  metadata: [:request_id]
+config :logger, level: :info
+config :logger, :default_formatter, metadata: [:request_id]
